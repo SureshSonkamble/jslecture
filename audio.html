@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function p(){
+           // alert("test");
+        var pwd=document.getElementById("pwd").value;   
+        var a=document.getElementById("alarm");
+        var v=document.getElementById("vv");
+         let cnt=0;
+        if(pwd==123){
+            alert("Welcome");
+            //v.play();
+        
+            document.body.style.backgroundImage = "url('wel.png')";
+        }else{
+            for(let i=0;i<=3;i++){
+           cnt++;
+          // p();
+           alert(cnt);
+           if(cnt>3){
+         a.play();
+         document.body.style.backgroundImage = "url('dd.jpg')";
+           }
+        }
+    }
+        }
+    </script>
+</head>
+<body>
+    
+   <center>
+    <audio id="alarm">
+        <source src="danger.mp3" type="audio/mpeg">
+      </audio>
+
+      <!-- <video id="vv" width="1920" height="900">
+        <source src="vv.mp4" type="video/mp4">
+      </video>  -->
+      Password<input type="password" id="pwd">
+      <input type="button" value="play" onclick="p()">
+    </center>
+</body>
+</html>
