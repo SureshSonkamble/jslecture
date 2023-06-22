@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+     function load()
+     {   
+        axios.post('https://codingseekho.in/APP/WS_API/select_test.php')
+        .then(responce=>{
+            console.log(responce.data);
+            var id=document.getElementById('uid').value;
+            alert("Welcome "+responce.data.posts.post[id].Name)
+        })
+     }
+
+    </script>
+</head>
+<body >
+    <center>
+    Enter Id <input type="number" id="uid"><br>
+    <input type="button" onclick="load()" value="SHOW NAME">
+</center>
+</body>
+</html>

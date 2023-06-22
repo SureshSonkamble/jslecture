@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function save(){
+            var nm=document.getElementById('nm').value;
+            var adr=document.getElementById('adr').value;
+            var eml=nm=document.getElementById('eml').value;
+           // alert(nm+" "+mob+" "+eml)
+
+        //    const newData = {
+        //        name: nm,
+        //        addr:adr,
+        //        email: eml,
+        //     // Additional data properties if required
+        //      };
+    
+axios.post('https://codingseekho.in/APP/WS_API/insert_test.php?name='+nm+'&addr='+adr+'&email='+eml+'')
+  .then(response => {
+    console.log('Data inserted successfully:', response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+  }
+
+    </script>
+</head>
+<body>
+    <center>
+            Name<input type="text" id="nm"><br>
+    Address<input type="text" id="adr"><br>
+    Email<input type="email" id="eml"><br>
+    <input type="button" onclick="save()" value="Add Contact">
+</center>
+
+</body>
+</html>

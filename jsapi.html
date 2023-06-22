@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        function load()
+        {
+          axios.post('https://codingseekho.in/APP/WS_API/select_test.php')
+  .then(response => {
+    // Process the response data
+    console.log(response.data);
+  })
+  .catch(error => {
+    // Handle any errors
+    console.error('Error:', error);
+  });
+
+        }
+    </script>
+</body>
+<center>
+<input type="button" onclick="load()" value="Load data">
+</center>
+</html>

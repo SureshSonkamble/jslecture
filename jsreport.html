@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <script>
+        function load()
+        {
+          axios.post('https://codingseekho.in/APP/WS_API/select_test.php')
+  .then(response => {
+    // Process the response data
+    console.log(response.data);
+    const counter =response.data.posts.post;
+    console.log(counter.length)
+    var sts=response.data.posts.status;
+    //var nm=response.data.posts.post[0].Name;
+    var s=document.getElementById("sts").innerHTML=sts;
+    //var nmm=document.getElementById("nm").innerHTML=nm;
+    $('#dt').empty();
+    for (let i = 0; i < counter.length; i++) {		
+		        
+				var rowData="<tr class='success'><td>"+counter[i].Name+"</td>";
+            	rowData +="<td>"+counter[i].Address+"</td>";
+            	rowData +="<td>"+counter[i].Email+"</td>";           	
+				rowData +="</tr>";
+				$('#dt').append(rowData);
+				
+		}
+    
+  })
+  .catch(error => {
+    // Handle any errors
+    console.error('Error:', error);
+  });
+
+        }
+    </script>
+</body>
+<center>
+    <h1 id="sts"></h1>
+    <h1 id="nm"></h1>
+    <div class="table-responsive" >
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                 <th width="33%" style="font-size: 11px;">Name</th>
+                 <th width="33%" style="font-size: 11px;">Address</th>
+                 <th width="33%" style="font-size: 11px;">Email</th>
+                 
+            </tr>
+        </thead>
+        <tbody id="dt">
+
+        </tbody>
+
+    </table>
+
+</div>
+<input type="button" onclick="load()" value="Load data">
+</center>
+</html>

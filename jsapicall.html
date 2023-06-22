@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        function load(){
+            axios.post('https://codingseekho.in/APP/WS_API/select_test.php')
+            .then(responce=>{
+              console.log(responce.data);
+              var sts=responce.data.posts.status;
+              console.log(sts);
+              var s=document.getElementById("sts").innerHTML=sts;
+
+            })
+            .catch(error=>{
+                console.error(error)
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h1 id="sts"></h1>
+    <input type="button" onclick="load()" value="Call API">
+    </center>
+</body>
+
+
+</html>

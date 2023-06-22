@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function save(){
+            var id=document.getElementById('uid').value;
+           // var adr=document.getElementById('adr').value;
+           // var eml=nm=document.getElementById('eml').value;
+           // alert(nm+" "+mob+" "+eml)
+
+        //    const newData = {
+        //        name: nm,
+        //        addr:adr,
+        //        email: eml,
+        //     // Additional data properties if required
+        //      };
+    
+axios.post('https://codingseekho.in/APP/WS_API/delete_test.php?id='+id+'')
+  .then(response => {
+    console.log('Data Deleted successfully:', response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+  }
+
+    </script>
+</head>
+<body>
+    <center>
+            Enter Id <input type="number" id="uid"><br>
+   
+    <input type="button" onclick="save()" value="Delete Contact">
+</center>
+
+</body>
+</html>
