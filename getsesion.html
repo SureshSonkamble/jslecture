@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getdata(){
+            // Get session data
+var id = sessionStorage.getItem('id');
+var nm = sessionStorage.getItem('name');
+console.log(nm); // Output: 'value'
+alert("Welcome "+nm+" "+id);
+if(nm!=""){
+             var url = 'setsesion.html';
+               // Redirect to the second page
+             window.location.href = url;
+          }
+        }
+    </script>
+</head>
+<body onload="getdata()">
+    
+</body>
+</html>

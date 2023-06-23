@@ -1,0 +1,33 @@
+ sessionStorage.setItem('nm', nm);
+var value = sessionStorage.getItem('nm');
+
+
+1]//add user
+https://codingseekho.in/APP/EXP/add_user.php
+key mobile uname  opbal
+
+
+2]//login
+https://codingseekho.in/APP/EXP/user_login.php
+key  mobile
+
+
+3]//credit
+https://codingseekho.in/APP/EXP/insert_credit.php
+uid,date,note,debit,credit
+
+4]//debit
+https://codingseekho.in/APP/EXP/insert_debit.php
+uid,date,note,debit,credit
+
+
+5]//transaction
+https://codingseekho.in/APP/EXP/transaction_list.php?uid=
+uid
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function setsesion(){
+            // Set session data
+            var mob=document.getElementById("mob").value;
+            axios.post('https://codingseekho.in/APP/EXP/user_login.php?mobile='+mob+'')
+         .then(responce=>{
+              console.log(responce.data);
+              if(responce.data.posts.status==200){
+                var id=responce.data.posts.id;
+                var name=responce.data.posts.name;
+                sessionStorage.setItem('id', id);
+                sessionStorage.setItem('name', name);
+                var url = 'getsesion.html';
+               // Redirect to the second page
+             window.location.href = url;
+              }else{
+                alert("Failed to Save");
+              }
+         })
+         .catch(error=>{
+            console.error(error);
+         })
+         
+        }
+    </script>
+</head>
+<body>
+    <center>
+    Mobile<input type="number" id="mob"><br>
+    <input type="button" onclick="setsesion()" value="Login">
+</center>
+</body>
+</html>
